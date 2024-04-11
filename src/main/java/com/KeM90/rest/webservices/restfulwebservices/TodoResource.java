@@ -3,12 +3,14 @@ package com.KeM90.rest.webservices.restfulwebservices;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.KeM90.rest.webservices.restfulwebservices.todo.Todo;
 import com.KeM90.rest.webservices.restfulwebservices.todo.TodoHardcodedService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -24,5 +26,21 @@ public class TodoResource {
         return todoService.findAll();
 
     }
+
+    //DELETE /user/{username}/todos/{id}
+    @DeleteMapping("/users/{username}/todos/{id}")
+    public ResponseEntity<Void> deleteTodo(
+        @PathVariable String username, @PathVariable long id) {
+
+            Todo todo = todoService.deleteById(id);
+            if(todo!=null) {
+                return ResponseEntity.noContent().build();
+            }
+
+            return ResponseEntity.notFound().build();
+        }
+    
+
+
 
 }
