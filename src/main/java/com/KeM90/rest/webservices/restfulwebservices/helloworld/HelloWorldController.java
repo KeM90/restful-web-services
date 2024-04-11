@@ -1,4 +1,4 @@
-package com.KeM90.rest.webservices.restfulwebservices;
+package com.KeM90.rest.webservices.restfulwebservices.helloworld;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,8 +23,8 @@ public class HelloWorldController {
     //hello-world-bean
     @GetMapping(path="/hello-world-bean") 
     public HelloWorldBean helloWorldBean(){
-        throw new RuntimeException("Some Error has Happened! Contact Support at ***-***");
-        //return new HelloWorldBean("Hello Worl - Changed");
+        // throw new RuntimeException("Some Error has Happened! Contact Support at ***-***");
+        return new HelloWorldBean("Hello World - Changed");
     }
 
     //hello-world/path-variable/name
