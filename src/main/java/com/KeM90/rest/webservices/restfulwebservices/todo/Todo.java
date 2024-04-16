@@ -9,7 +9,9 @@ public class Todo {
     private Date targetDate;
     private boolean isDone;
 
-    
+    protected Todo() {
+        
+    }
 
 
    
