@@ -66,7 +66,7 @@ public class TodoResource {
         }
 
     @PostMapping("/users/{username}/todos")
-    public ResponseEntity<Void> updateTodo(
+    public ResponseEntity<Void> createTodo(
             @PathVariable String username,
             @RequestBody Todo todo) {
         Todo createdTodo = todoService.save(todo);
