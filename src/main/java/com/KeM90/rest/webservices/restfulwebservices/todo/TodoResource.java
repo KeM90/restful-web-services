@@ -1,4 +1,4 @@
-package com.KeM90.rest.webservices.restfulwebservices;
+package com.KeM90.rest.webservices.restfulwebservices.todo;
 
 import java.net.URI;
 import java.util.List;
@@ -8,10 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.KeM90.rest.webservices.restfulwebservices.todo.Todo;
-import com.KeM90.rest.webservices.restfulwebservices.todo.TodoHardcodedService;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,8 +52,7 @@ public class TodoResource {
     @PutMapping("/users/{username}/todos/{id}")
     public ResponseEntity<Todo> updateTodo(
             @PathVariable String username,
-            @PathVariable long id,
-            @RequestBody Todo todo) {
+            @PathVariable long id, @RequestBody Todo todo) {
         Todo todoUpdated = todoService.save(todo);
         
         return new ResponseEntity<Todo>(todo,HttpStatus.OK);
@@ -66,7 +61,7 @@ public class TodoResource {
         }
 
     @PostMapping("/users/{username}/todos")
-    public ResponseEntity<Void> createTodo(
+    public ResponseEntity<Void> updateTodo(
             @PathVariable String username,
             @RequestBody Todo todo) {
         Todo createdTodo = todoService.save(todo);
