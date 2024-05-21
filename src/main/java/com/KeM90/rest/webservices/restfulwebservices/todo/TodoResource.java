@@ -59,7 +59,8 @@ public class TodoResource {
 
 
         }
-
+// Create a new Todo
+// POST /users/{user_name}/todos/
     @PostMapping("/users/{username}/todos")
     public ResponseEntity<Void> updateTodo(
             @PathVariable String username,
@@ -77,8 +78,5 @@ public class TodoResource {
     
         }
 
-
-// Create a new Todo
-// POST /users/{user_name}/todos/
 
 }
